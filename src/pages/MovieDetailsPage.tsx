@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import axios from 'axios';
 import UseMovieDetails from '../hooks/UseMovieDetails';
 
 const MovieDetailsPage: React.FC = () => {
