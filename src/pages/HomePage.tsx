@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ReactPaginate from 'react-paginate';
 import MovieCard from '../components/MovieCard';
 import UseMovies from '../hooks/UseMovies';
 import { Movie } from '../types/movie';
@@ -10,7 +9,7 @@ const HomePage: React.FC = () => {
   const [page, setPage] = useState(1);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   searchParams.set('page', page.toString());
 

@@ -9,12 +9,13 @@ const Search = () => {
     const navigate = useNavigate();
     const debouncedQuery = useDebounce(query, 500);
 
-    const { data, status } = UseMovies(page, debouncedQuery);
+    const { data } = UseMovies(page, debouncedQuery);
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPage(1);
-        console.log("onCjhange",  e?.target?.value);
-        setQuery(e.target.value)}
+        console.log("onCjhange", e?.target?.value);
+        setQuery(e.target.value)
+    }
 
     const onClick = (id: number) => {
         setQuery('');

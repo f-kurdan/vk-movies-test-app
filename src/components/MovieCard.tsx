@@ -22,14 +22,12 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
     navigate(`/movie/${movie.id}`);
   };
 
-  const genre = movie?.genres;
-
   return (
     <div className="flex flex-col justify-between items-center max-w-sm rounded overflow-hidden shadow-lg h-[450px] ">
-      
+
       <div className='relative h-[300px] w-full overflow-hidden'>
-        {movie.poster ? <img src={movie.poster?.url} alt={movie.name} /> 
-        : <div className='h-[300px] w-full bg-zinc-100' > </div>}        
+        {movie.poster ? <img src={movie.poster?.url} alt={movie.name} />
+          : <div className='h-[300px] w-full bg-zinc-100' > </div>}
         <span className="absolute top-3 left-3 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"          >
           {movie.rating.kp}
         </span>

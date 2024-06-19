@@ -9,7 +9,7 @@ const MovieFilter: React.FC = () => {
     const [minYear, setMinYear] = useState<number>(1990);
     const [maxYear, setMaxYear] = useState<number>(new Date().getFullYear());
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [_, setSearchParams] = useSearchParams();
 
     const handleGenreChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
