@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import FavoritesPage from './pages/FavoritePage';
+import HomePage from './pages/HomePage';
+import MovieDetailsPage from './pages/MovieDetailsPage';
+import Navbar from './components/Navbar';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function App() {
+const queryClient = new QueryClient();
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/movie/:id" element={<MovieDetailsPage />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </QueryClientProvider>
   );
-}
+};
 
 export default App;
